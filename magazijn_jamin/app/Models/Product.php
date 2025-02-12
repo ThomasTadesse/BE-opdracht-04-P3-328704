@@ -18,6 +18,8 @@ class Product extends Model
         'Barcode',
         'Omschrijving'
     ];
+    
+    public $timestamps = false; // Add this line
 
     public function magazijn()
     {

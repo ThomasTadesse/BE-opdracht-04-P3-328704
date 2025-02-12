@@ -27,7 +27,9 @@ class DatabaseSeeder extends Seeder
         // Other seeders can be called here
         // $this->call(OtherSeeder::class);
 
-        Contact::factory()->count(6)->create();
+        Contact::factory()->count(7)->create();
+
+
         Leverancier::factory()->count(7)->create();
         Product::factory()->count(14)->create();
         Magazijn::factory()->count(13)->create();

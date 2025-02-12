@@ -32,8 +32,8 @@ class DatabaseSeeder extends Seeder
         Contact::factory()->count(6)->create();
         Product::factory()->count(14)->create();
         Magazijn::factory()->count(13)->create();
+        ProductPerLeverancier::factory()->count(17)->create();
         
-        // ::factory()->count( )->create();
         // ::factory()->count( )->create();
     }
 }

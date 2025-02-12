@@ -2,12 +2,18 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use App\Models\Magazijn;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+// use App\Models\User;
+use App\Models\Leverancier;
+use App\Models\Product;
+use App\Models\Magazijn;
+use App\Models\Contact;
+use App\Models\ProductPerLeverancier;
+use App\Models\Allergeen;
+use App\Models\ProductPerAllergeen;
 
 
 class DatabaseSeeder extends Seeder
@@ -19,22 +25,15 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'a',
-            'email' => 'a@gmail.com',
-        ]);
-
-        Magazijn::factory()->create([
-            'ProductId' => 1,
-            'VerpakkingsEenheid' => 1.5,
-            'AantalAanwezig' => 100,
-            'IsActief' => true,
-            'Opmerkingen' => 'Initial stock',
-            'DatumAangemaakt' => now(),
-            'DatumGewijzigd' => now(),
-        ]);
-
         // Other seeders can be called here
         // $this->call(OtherSeeder::class);
+
+        Leverancier::factory()->count(7)->create();
+        Contact::factory()->count(6)->create();
+        
+        // ::factory()->count( )->create();
+        // ::factory()->count( )->create();
+        // ::factory()->count( )->create();
+        // ::factory()->count( )->create();
     }
 }

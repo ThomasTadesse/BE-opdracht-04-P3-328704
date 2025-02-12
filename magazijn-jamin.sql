@@ -61,7 +61,8 @@ VALUES
     ('Winegums', '8719587327527', 1, NULL, SYSDATE(6), SYSDATE(6)),
     ('Drop Munten', '8719587322345', 1, NULL, SYSDATE(6), SYSDATE(6)),
     ('Kruis Drop', '8719587322265', 1, NULL, SYSDATE(6), SYSDATE(6)),
-    ('Zoute Ruitjes', '8719587323256', 1, NULL, SYSDATE(6), SYSDATE(6));
+    ('Zoute Ruitjes', '8719587323256', 1, NULL, SYSDATE(6), SYSDATE(6)),
+    ('Drop ninja’s', '8719587323277', 1, NULL, SYSDATE(6), SYSDATE(6));
 
 -- Step 03:
 -- Goal: Create a new table Magazijn
@@ -223,7 +224,8 @@ VALUES
     (3,'Haribo', 'Sven Stalman', 'L1029324748', '06-24383291', 1, NULL, SYSDATE(6), SYSDATE(6)),
     (4,'Basset', 'Joyce Stelterberg', 'L1023845773', '06-48293823', 1, NULL, SYSDATE(6), SYSDATE(6)),
     (5,'De Bron', 'Remco Veenstra', 'L1023857736', '06-34291234', 1, NULL, SYSDATE(6), SYSDATE(6)),
-    (6,'Quality Street', 'Johan Nooij', 'L1029234586', '06-23458456', 1, NULL, SYSDATE(6), SYSDATE(6));
+    (6,'Quality Street', 'Johan Nooij', 'L1029234586', '06-23458456', 1, NULL, SYSDATE(6), SYSDATE(6)),
+    (7,'Hom Ken Food', 'Hom Ken', 'L1029234599', '06-23458477', 1, NULL, SYSDATE(6), SYSDATE(6));
 
 
 
@@ -291,7 +293,8 @@ VALUES
 (5, 11, '2024-10-10', 47, '2024-10-17', 1, NULL, SYSDATE(6), SYSDATE(6)),
 (5, 11, '2024-10-19', 60, '2024-10-26', 1, NULL, SYSDATE(6), SYSDATE(6)),
 (5, 12, '2024-10-11', 45, NULL, 1, NULL, SYSDATE(6), SYSDATE(6)),
-(5, 13, '2024-10-12', 23, NULL, 1, NULL, SYSDATE(6), SYSDATE(6));
+(5, 13, '2024-10-12', 23, NULL, 1, NULL, SYSDATE(6), SYSDATE(6)),
+(7, 14, '2024-10-13', 20, NULL, 1, NULL, SYSDATE(6), SYSDATE(6));
 
 
 -- Step 11:
@@ -396,7 +399,8 @@ VALUES
  ,(12, 4, 1, NULL, SYSDATE(6), SYSDATE(6))
  ,(13, 1, 1, NULL, SYSDATE(6), SYSDATE(6))
  ,(13, 4, 1, NULL, SYSDATE(6), SYSDATE(6))
- ,(13, 5, 1, NULL, SYSDATE(6), SYSDATE(6));
+ ,(13, 5, 1, NULL, SYSDATE(6), SYSDATE(6))
+ ,(14, 5, 1, NULL, SYSDATE(6), SYSDATE(6));
 
 
 

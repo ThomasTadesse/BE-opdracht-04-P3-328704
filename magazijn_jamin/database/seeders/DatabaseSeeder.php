@@ -27,14 +27,13 @@ class DatabaseSeeder extends Seeder
         // Other seeders can be called here
         // $this->call(OtherSeeder::class);
 
-        Contact::factory()->count(7)->create();
-
-
+        Contact::factory()->count(6)->create();
         Leverancier::factory()->count(7)->create();
+        Allergeen::factory()->count(5)->create();
+
         Product::factory()->count(14)->create();
         Magazijn::factory()->count(13)->create();
         ProductPerLeverancier::factory()->count(17)->create();
-        Allergeen::factory()->count(5)->create();
         ProductPerAllergeen::factory()->count(12)->create();
     }
 }

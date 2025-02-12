@@ -12,7 +12,7 @@ use Carbon\Carbon;
  */
 class LeverancierFactory extends Factory
 {
-    protected $model = Leverancier::class;
+    private static $index = 0;
 
     private static $leveranciers = [
         [
@@ -99,6 +99,8 @@ class LeverancierFactory extends Factory
      */
     public function definition(): array
     {
-        return self::$leveranciers[array_rand(self::$leveranciers)];
+        $leverancier = self::$leveranciers[self::$index];
+        self::$index = (self::$index + 1) % count(self::$leveranciers);
+        return $leverancier;
     }
 }

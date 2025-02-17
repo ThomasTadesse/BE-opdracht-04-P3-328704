@@ -5,11 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Leverancier;
+use App\Models\Product;
+
 class ProductPerLeverancier extends Model
 {
     use HasFactory;
 
-    protected $table = 'product_per_leverancier'; // Ensure the table name is correct
+    protected $table = 'ProductPerLeverancier'; // Ensure the table name is correct
 
     protected $primaryKey = 'Id'; // Ensure the primary key is correct
 
@@ -22,4 +25,14 @@ class ProductPerLeverancier extends Model
         'Aantal',
         'DatumEerstVolgendeLevering'
     ];
+
+    public function leverancier()
+    {
+        return $this->belongsTo(Leverancier::class, 'LeverancierId', 'Id');
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'ProductId', 'Id');
+    }
 }

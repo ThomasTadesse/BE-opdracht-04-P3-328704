@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('Opmerkingen', 255)->nullable();
             $table->dateTime('DatumAangemaakt', 6);
             $table->dateTime('DatumGewijzigd', 6);
+            $table->timestamps();
         });
 
         Schema::create('Magazijn', function (Blueprint $table) {
@@ -31,6 +32,7 @@ return new class extends Migration
             $table->dateTime('DatumAangemaakt', 6);
             $table->dateTime('DatumGewijzigd', 6);
             $table->foreign('ProductId')->references('Id')->on('Product');
+            $table->timestamps();
         });
 
         Schema::create('Contact', function (Blueprint $table) {
@@ -43,6 +45,7 @@ return new class extends Migration
             $table->string('Opmerkingen', 255)->nullable();
             $table->dateTime('DatumAangemaakt', 6);
             $table->dateTime('DatumGewijzigd', 6);
+            $table->timestamps();
         });
 
         Schema::create('Leverancier', function (Blueprint $table) {
@@ -57,6 +60,7 @@ return new class extends Migration
             $table->dateTime('DatumAangemaakt', 6);
             $table->dateTime('DatumGewijzigd', 6);
             $table->foreign('ContactId')->references('Id')->on('Contact');
+            $table->timestamps();
         });
 
         Schema::create('ProductPerLeverancier', function (Blueprint $table) {
@@ -72,6 +76,7 @@ return new class extends Migration
             $table->dateTime('DatumGewijzigd', 6);
             $table->foreign('LeverancierId')->references('Id')->on('Leverancier');
             $table->foreign('ProductId')->references('Id')->on('Product');
+            $table->timestamps();
         });
 
         Schema::create('Allergeen', function (Blueprint $table) {
@@ -82,6 +87,7 @@ return new class extends Migration
             $table->string('Opmerkingen', 255)->nullable();
             $table->dateTime('DatumAangemaakt', 6);
             $table->dateTime('DatumGewijzigd', 6);
+            $table->timestamps();
         });
 
         Schema::create('ProductPerAllergeen', function (Blueprint $table) {
@@ -94,6 +100,7 @@ return new class extends Migration
             $table->dateTime('DatumGewijzigd', 6);
             $table->foreign('ProductId')->references('Id')->on('Product');
             $table->foreign('AllergeenId')->references('Id')->on('Allergeen');
+            $table->timestamps();
         });
     }
 

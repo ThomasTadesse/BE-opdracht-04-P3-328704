@@ -12,21 +12,31 @@
         <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
             <thead>
                 <tr class="bg-gray-400 text-white">
-                    <th class="py-3 px-4 text-left">Naam</th>
+                    <th class="py-3 px-4 text-left">Naam Product</th>
+                    <th class="py-3 px-4 text-left">Naam Allergeen</th>
                     <th class="py-3 px-4 text-left">Omschrijving</th>
-                    <th class="py-3 px-4 text-left">Status</th>
+                    <th class="py-3 px-4 text-left">Aantal Aanwezig</th>
+                    <th class="py-3 px-4 text-left">Info</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($allergenen as $allergeen)
                     <tr class="border-b hover:bg-gray-50">
+
+                    <!-- Product Naam -->
                         <td class="py-3 px-4">{{ $allergeen->Naam }}</td>
+                        
+                        <td class="py-3 px-4">{{ $allergeen->Naam }}</td>
+
                         <td class="py-3 px-4">{{ $allergeen->Omschrijving }}</td>
+
+                    <!-- AantalAanwezig -->
+                        <td class="py-3 px-4">{{ $allergeen->Omschrijving }}</td>
+
                         <td class="py-3 px-4">
-                            <span class="{{ $allergeen->IsActief ? 'text-green-600' : 'text-red-600' }}">
-                                {{ $allergeen->IsActief ? 'Actief' : 'Inactief' }}
-                            </span>
+                            <a href="{{ route('allergeen.show', $allergeen->Id) }}" class="text-blue-500 hover:underline text-xl">ⓘ</a>
                         </td>
+                        
                     </tr>
                 @endforeach
             </tbody>

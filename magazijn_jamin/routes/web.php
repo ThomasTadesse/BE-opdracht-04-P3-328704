@@ -8,6 +8,12 @@ use App\Http\Controllers\LeverancierController;
 use App\Models\Leverancier;
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
+use App\Http\Controllers\AllergeenController;
+use App\Models\Allergeen;
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+
 
 use Illuminate\Support\Arr;
 
@@ -52,13 +58,12 @@ Route::delete('/leverancier/{id}', [LeverancierController::class, 'destroy'])
     ->name('leverancier.destroy'); // delete data
 
 
-// resoure product
-Route::resource('product', ProductController::class);
-
-Route::get('/product', [ProductController::class, 'index'])->name('product.index'); // view product.blade.php
-Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show'); // view product.blade.php
-Route::get('/product/create', [ProductController::class, 'create'])->name('product.create'); // view create.blade.php
-Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product.edit'); // view edit.blade.php
-Route::post('/product', [ProductController::class, 'store'])->name('product.store'); // store data
-Route::put('/product/{id}', [ProductController::class, 'update'])->name('product.update'); // update data
-Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product.destroy'); // delete data
+//resoure Allergeen
+Route::resource('allergeen', AllergeenController::class);
+Route::get('/allergeen', [AllergeenController::class, 'index'])->name('allergeen.index'); // view index.blade.php
+Route::get('/allergeen/{id}', [AllergeenController::class, 'show'])->name('allergeen.show'); // view show.blade.php
+Route::get('/allergeen/create', [AllergeenController::class, 'create'])->name('allergeen.create'); // view create.blade.php
+Route::get('/allergeen/{id}/edit', [AllergeenController::class, 'edit'])->name('allergeen.edit'); // view edit.blade.php
+Route::post('/allergeen', [AllergeenController::class, 'store'])->name('allergeen.store'); // store data
+Route::put('/allergeen/{id}', [AllergeenController::class, 'update'])->name('allergeen.update'); // update data
+Route::delete('/allergeen/{id}', [AllergeenController::class, 'destroy'])->name('allergeen.destroy'); // delete data

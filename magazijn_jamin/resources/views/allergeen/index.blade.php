@@ -8,10 +8,10 @@
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold mb-6">Overzicht Allergenen</h1>
-        <table class="min-w-full bg-white shadow-md rounded">
+        <h1 class="text-3xl font-bold mb-6 text-center">Overzicht Allergenen</h1>
+        <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
             <thead>
-                <tr class="bg-gray-200 text-gray-700">
+                <tr class="bg-gray-400 text-white">
                     <th class="py-3 px-4 text-left">Naam</th>
                     <th class="py-3 px-4 text-left">Omschrijving</th>
                     <th class="py-3 px-4 text-left">Status</th>

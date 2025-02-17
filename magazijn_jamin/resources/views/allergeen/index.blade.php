@@ -25,7 +25,7 @@
                 </select>
 
                 <!-- Maak Selectie Knop -->
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-600">
+                <button type="submit" class="bg-blue-300 text-white px-4 py-2 rounded-lg shadow hover:bg-green-300">
                     Maak selectie
                 </button>
             </form>
@@ -45,21 +45,13 @@
             <tbody>
             @foreach($allergenen as $allergeen)
                     <tr class="border-b hover:bg-gray-50">
-
-                    <!-- Product Naam -->
-                        <td class="py-3 px-4">{{ $allergeen->Naam }}</td>
-                        
-                        <td class="py-3 px-4">{{ $allergeen->Naam }}</td>
-
+                        <td class="py-3 px-4">{{ $allergeen->ProductNaam }}</td>
+                        <td class="py-3 px-4">{{ $allergeen->AllergeenNaam }}</td>
                         <td class="py-3 px-4">{{ $allergeen->Omschrijving }}</td>
-
-                    <!-- AantalAanwezig -->
-                        <td class="py-3 px-4">{{ $allergeen->Omschrijving }}</td>
-
+                        <td class="py-3 px-4">{{ $allergeen->AantalAanwezig }}</td>
                         <td class="py-3 px-4">
-                            <a href="{{ route('allergeen.show', $allergeen->Id) }}" class="text-blue-500 hover:underline text-xl">ⓘ</a>
+                            <a href="{{ route('allergeen.show', $allergeen->Id) }}" class="text-blue-500 hover:text-blue-700 text-xl">ⓘ</a>
                         </td>
-                        
                     </tr>
                 @endforeach
             </tbody>

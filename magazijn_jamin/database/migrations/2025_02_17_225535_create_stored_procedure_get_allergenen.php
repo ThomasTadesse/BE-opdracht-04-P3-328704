@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
@@ -12,9 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        DB::unprepared('CREATE PROCEDURE GetAllergenen()
+        DB::unprepared('
+        DROP PROCEDURE IF EXISTS GetAllergenen;
+        CREATE PROCEDURE GetAllergenen()
         BEGIN
-            SELECT * FROM Allergeen;
+            SELECT 
+                a.id AS Id,
+                p.Naam AS ProductNaam,
+                a.Naam AS AllergeenNaam,
+                a.Omschrijving,
+                m.AantalAanwezig
+            FROM Allergeen a
+            JOIN ProductPerAllergeen pa ON a.Id = pa.AllergeenId
+            JOIN Product p ON pa.ProductId = p.Id
+            LEFT JOIN Magazijn m ON p.Id = m.ProductId
+            WHERE a.IsActief = 1 AND p.IsActief = 1
+            ORDER BY ProductNaam ASC;
         END');
     }
 

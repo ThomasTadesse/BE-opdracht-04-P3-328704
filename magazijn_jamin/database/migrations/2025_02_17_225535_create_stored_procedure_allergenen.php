@@ -28,6 +28,27 @@ return new class extends Migration
             WHERE a.IsActief = 1 AND p.IsActief = 1
             ORDER BY ProductNaam ASC;
         END');
+
+        DB::unprepared('
+        DROP PROCEDURE IF EXISTS GetLeverancierByProductId;
+        CREATE PROCEDURE GetLeverancierByProductId(IN productId INT)
+        BEGIN
+            SELECT 
+                l.id AS Id,
+                l.Naam AS LeverancierNaam,
+                l.Contactpersoon,
+                l.Mobiel,
+                c.Stad,
+                c.Straat,
+                c.Huisnummer
+            FROM Leverancier l
+            JOIN Contact c ON l.ContactId = c.Id
+            WHERE l.Id = (
+                SELECT LeverancierId
+                FROM Product
+                WHERE Id = productId
+            );
+        END');
     }
 
     /**
@@ -36,5 +57,6 @@ return new class extends Migration
     public function down(): void
     {
         DB::unprepared('DROP PROCEDURE IF EXISTS GetAllergenen');
+        DB::unprepared('DROP PROCEDURE IF EXISTS GetLeverancierByProductId');
     }
 };

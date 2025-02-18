@@ -28,10 +28,9 @@ class AllergeenController extends Controller
 
     public function show($id)
     {
-        $allergeen = DB::table('allergeen')
-            ->where('Id', $id)
-            ->first();
-        
-        return view('allergeen.show', ['allergeen' => $allergeen]);
+        // Haal de leverancier gegevens op basis van het product ID
+        $leverancier = collect(DB::select('CALL GetLeverancierByProductId(?)', [$id]))->first();
+    
+        return view('leverancier.index', compact('leverancier'));
     }
 }

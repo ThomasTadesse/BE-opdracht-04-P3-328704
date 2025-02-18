@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Product;
 use App\Models\Allergeen;
+use App\Models\Task;
+
 
 class ProductPerAllergeen extends Model
 {
@@ -18,10 +20,7 @@ class ProductPerAllergeen extends Model
     
     public $timestamps = false;
 
-    protected $fillable = [
-        'ProductId',
-        'AllergeenId'
-    ];
+    protected $guarded = [];
 
     public function product()
     {
@@ -31,5 +30,10 @@ class ProductPerAllergeen extends Model
     public function allergeen()
     {
         return $this->belongsTo(Allergeen::class, 'AllergeenId', 'Id');
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
     }
 }

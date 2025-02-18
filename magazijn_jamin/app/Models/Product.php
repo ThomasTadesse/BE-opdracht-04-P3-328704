@@ -12,19 +12,15 @@ use App\Models\ProductPerAllergeen;
 
 class Product extends Model
 {
-    /** @use HasFactory<\Database\Factories\ProductFactory> */
     use HasFactory;
 
-    protected $table = 'Product'; // Ensure the table name is correct
+    protected $table = 'Product';
 
-    protected $primaryKey = 'Id'; // Ensure the primary key is correct
+    protected $primaryKey = 'Id'; 
 
-    public $timestamps = false; // Disable timestamps
+    public $timestamps = false;
 
-    protected $fillable = [
-        'Naam',
-        'Barcode'
-    ];
+    protected $guarded = [];
 
     public function magazijn()
     {

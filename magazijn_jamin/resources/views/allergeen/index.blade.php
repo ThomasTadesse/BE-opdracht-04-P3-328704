@@ -50,7 +50,7 @@
                         <td class="py-3 px-4">{{ $allergeen->Omschrijving }}</td>
                         <td class="py-3 px-4">{{ $allergeen->AantalAanwezig }}</td>
                         <td class="py-3 px-4">
-                            <a href="{{ route('allergeen.show', $allergeen->Id) }}" class="text-blue-500 hover:text-blue-700 text-xl">ⓘ</a>
+                            <a href="{{ route('allergeen.show', $allergeen->Id) }}" class="text-blue-500 hover:text-blue-700 text-xl">❔</a>
                         </td>
                     </tr>
                 @endforeach

@@ -23,20 +23,26 @@
                 </tr>
             </thead>
             <tbody>
+                @if($allergeen)
                 <tr class="border-b hover:bg-gray-50">
-                    <td class="py-3 px-4">{{ $leverancier->Naam ?? 'N/A' }}</td>
-                    <td class="py-3 px-4">{{ $leverancier->Contactpersoon ?? 'N/A' }}</td>
-                    <td class="py-3 px-4">{{ $leverancier->Mobiel ?? 'N/A' }}</td>
+                    <td class="py-3 px-4">{{ $allergeen->LeverancierNaam ?? 'N/A' }}</td>
+                    <td class="py-3 px-4">{{ $allergeen->Contactpersoon ?? 'N/A' }}</td>
+                    <td class="py-3 px-4">{{ $allergeen->Mobiel ?? 'N/A' }}</td>
                     
                     <!-- Adresgegevens contact -->
-                @if($leverancier->Stad && $leverancier->Straat && $leverancier->Huisnummer)
-                    <td class="py-3 px-4">{{ $leverancier->Stad }}</td>
-                    <td class="py-3 px-4">{{ $leverancier->Straat }}</td>
-                    <td class="py-3 px-4">{{ $leverancier->Huisnummer }}</td>
-                @else
-                    <td class="py-3 px-4" colspan="3">Er zijn geen adresgegevens bekend</td>
-                @endif
+                    @if(isset($allergeen->Stad) && isset($allergeen->Straat) && isset($allergeen->Huisnummer))
+                        <td class="py-3 px-4">{{ $allergeen->Stad }}</td>
+                        <td class="py-3 px-4">{{ $allergeen->Straat }}</td>
+                        <td class="py-3 px-4">{{ $allergeen->Huisnummer }}</td>
+                    @else
+                        <td class="py-3 px-4" colspan="3">Er zijn geen adresgegevens bekend</td>
+                    @endif
                 </tr>
+                @else
+                <tr>
+                    <td colspan="6" class="py-3 px-4 text-center">Geen gegevens gevonden</td>
+                </tr>
+                @endif
             </tbody>
         </table>
 

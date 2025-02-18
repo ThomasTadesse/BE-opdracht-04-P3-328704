@@ -28,9 +28,11 @@ class AllergeenController extends Controller
 
     public function show($id)
     {
-        // Haal de leverancier gegevens op basis van het product ID
-        $leverancier = collect(DB::select('CALL GetLeverancierByProductId(?)', [$id]))->first();
+        // Haal alle leverancier gegevens op basis van het product ID
+        $allergenen = DB::select('CALL GetLeverancierByProductId(?)', [$id]);
+        // Get first result or null if empty
+        $allergeen = !empty($allergenen) ? $allergenen[0] : null;
     
-        return view('leverancier.index', compact('leverancier'));
+        return view('allergeen.show', ['allergeen' => $allergeen]);
     }
 }

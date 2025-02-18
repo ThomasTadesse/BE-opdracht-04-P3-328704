@@ -43,11 +43,9 @@ return new class extends Migration
                 c.Huisnummer
             FROM Leverancier l
             JOIN Contact c ON l.ContactId = c.Id
-            WHERE l.Id = (
-                SELECT LeverancierId
-                FROM Product
-                WHERE Id = productId
-            );
+            JOIN ProductPerLeverancier ppl ON l.Id = ppl.LeverancierId
+            WHERE ppl.ProductId = productId
+            AND ppl.IsActief = 1;
         END');
     }
 

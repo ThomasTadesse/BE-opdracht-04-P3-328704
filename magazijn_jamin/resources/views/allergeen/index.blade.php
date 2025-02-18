@@ -48,7 +48,7 @@
                         <td class="py-3 px-4">{{ $allergeen->ProductNaam }}</td>
                         <td class="py-3 px-4">{{ $allergeen->AllergeenNaam }}</td>
                         <td class="py-3 px-4">{{ $allergeen->Omschrijving }}</td>
-                        <td class="py-3 px-4">{{ $allergeen->AantalAanwezig ?? "0" }}  </td>
+                        <td class="py-3 px-4">{{ $allergeen->AantalAanwezig }}  </td>
                         <td class="py-3 px-4">
                             <a href="{{ route('leverancier.index', $allergeen->Id) }}" class="text-blue-500 hover:text-blue-700 text-xl">❔</a>
                         </td>

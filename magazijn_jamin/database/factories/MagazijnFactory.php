@@ -132,6 +132,15 @@ class MagazijnFactory extends Factory
             'DatumAangemaakt' => '2024-11-22 00:00:00',
             'DatumGewijzigd' => '2024-11-22 00:00:00',
         ],
+        [
+            'ProductId' => 14,
+            'VerpakkingsEenheid' => 5,
+            'AantalAanwezig' => 0,
+            'IsActief' => 1,
+            'Opmerkingen' => null,
+            'DatumAangemaakt' => '2024-11-22 00:00:00',
+            'DatumGewijzigd' => '2024-11-22 00:00:00',
+        ]
     ];
 
     /**

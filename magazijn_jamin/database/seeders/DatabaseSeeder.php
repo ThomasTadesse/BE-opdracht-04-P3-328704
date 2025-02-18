@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
         Allergeen::factory()->count(5)->create();
 
         Product::factory()->count(14)->create();
-        Magazijn::factory()->count(13)->create();
+        Magazijn::factory()->count(14)->create();
         ProductPerLeverancier::factory()->count(17)->create();
         ProductPerAllergeen::factory()->count(13)->create();
     }

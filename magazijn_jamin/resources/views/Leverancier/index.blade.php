@@ -16,19 +16,30 @@
                 <tr class="bg-gray-400 text-white">
                     <th class="py-3 px-4 text-left">Naam Leverancier</th>
                     <th class="py-3 px-4 text-left">Contactpersoon</th>
-                    <th class="py-3 px-4 text-left">Telefoonnummer</th>
-                    <th class="py-3 px-4 text-left">Email</th>
-                    <th class="py-3 px-4 text-left">Adres</th>
+                    <th class="py-3 px-4 text-left">Mobiel</th>
+                    <th class="py-3 px-4 text-left">Stad</th>
+                    <th class="py-3 px-4 text-left">Straat</th>
+                    <th class="py-3 px-4 text-left">Huisnummer</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach($leveranciers as $leverancier)
                 <tr class="border-b hover:bg-gray-50">
+                    <!-- Leverancier gegevens -->
                     <td class="py-3 px-4">{{ $leverancier->Naam ?? 'N/A' }}</td>
                     <td class="py-3 px-4">{{ $leverancier->Contactpersoon ?? 'N/A' }}</td>
-                    <td class="py-3 px-4">{{ $leverancier->Telefoonnummer ?? 'N/A' }}</td>
-                    <td class="py-3 px-4">{{ $leverancier->Email ?? 'N/A' }}</td>
-                    <td class="py-3 px-4">{{ $leverancier->Adres ?? 'Er zijn geen adresgegevens bekend' }}</td>
+                    <td class="py-3 px-4">{{ $leverancier->Mobiel ?? 'N/A' }}</td>
+
+                    <!-- Adresgegevens contact -->
+                    @if($leverancier->Stad && $leverancier->Straat && $leverancier->Huisnummer)
+                        <td class="py-3 px-4">{{ $leverancier->Stad }}</td>
+                        <td class="py-3 px-4">{{ $leverancier->Straat }}</td>
+                        <td class="py-3 px-4">{{ $leverancier->Huisnummer }}</td>
+                    @else
+                        <td class="py-3 px-4" colspan="3">Er zijn geen adresgegevens bekend</td>
+                    @endif
                 </tr>
+                @endforeach
             </tbody>
         </table>
 

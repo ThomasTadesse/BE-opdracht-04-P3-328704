@@ -17,20 +17,27 @@ USE `magazijn-jamin`;
 DELIMITER $$
 
     DROP PROCEDURE IF EXISTS GetAllergenen;
-        CREATE PROCEDURE GetAllergenen()
+    CREATE PROCEDURE GetAllergenen()
         BEGIN
             SELECT 
-                a.id AS Id,
-                p.Naam AS ProductNaam,
-                a.Naam AS AllergeenNaam,
-                a.Omschrijving,
-                m.AantalAanwezig
-            FROM Allergeen a
-            JOIN ProductPerAllergeen pa ON a.Id = pa.AllergeenId
-            JOIN Product p ON pa.ProductId = p.Id
-            LEFT JOIN Magazijn m ON p.Id = m.ProductId
-            WHERE a.IsActief = 1 AND p.IsActief = 1
-            ORDER BY ProductNaam ASC;
-        END
-        $$
+                ALRG.id               AS AllergeenId
+                ,PRCT.Naam            AS ProductNaam
+                ,ALRG.Naam            AS AllergeenNaam
+                ,ALRG.Omschrijving    AS AllergeenOmschrijving
+                ,MGZN.AantalAanwezig  AS AantalInMagazijn
+            FROM 
+                Allergeen ALRG
+            JOIN 
+                ProductPerAllergeen PRAL ON ALRG.Id = PRAL.AllergeenId
+            JOIN 
+                Product PRCT ON PRAL.ProductId = PRCT.Id
+            LEFT JOIN 
+                Magazijn MGZN ON PRCT.Id = MGZN.ProductId
+            WHERE 
+                ALRG.IsActief = 1 
+                AND PRCT.IsActief = 1
+            ORDER BY 
+                ProductNaam ASC;
+        END$$
+
 DELIMITER ;
